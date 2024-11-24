@@ -16,7 +16,7 @@ export default async function IndexPage() {
             location: "Stockholm, Sweden",
             year: "1898 (built)",
             buttonText: "Explore Now",
-            buttonHref: "/places/hallwyl-museum",
+            buttonHref: "/details/1",
           },
         ]}
       />
