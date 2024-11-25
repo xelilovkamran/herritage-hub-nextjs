@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Check } from "lucide-react";
 import { Button, buttonVariants } from "@/components/ui/button";
@@ -10,6 +12,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { useUser } from "@stackframe/stack";
+import { useRouter } from "next/navigation";
 
 type PricingCardProps = {
   title: string;
@@ -22,6 +26,17 @@ type PricingCardProps = {
 };
 
 export function PricingCard(props: PricingCardProps) {
+  const user = useUser();
+  const router = useRouter();
+
+  const onClick = async () => {
+    await user?.update({
+      clientMetadata: {
+        subscriptionPlan: "basic",
+      },
+    });
+  };
+
   return (
     <Card
       className={`w-full max-w-sm ${
@@ -48,10 +63,11 @@ export function PricingCard(props: PricingCardProps) {
       </CardContent>
       <CardFooter>
         <Link
-          href={props.buttonHref}
+          href="/explore"
           className={buttonVariants({
-            variant: props.isPopular ? "default" : "outline",
+            variant: "outline",
           })}
+          onClick={() => (user ? onClick() : router.push("handler/sign-in"))}
         >
           {props.buttonText}
         </Link>

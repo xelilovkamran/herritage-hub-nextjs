@@ -61,7 +61,7 @@ export function ExploreCard(props: ExploreCardProps) {
         </div>
       </CardContent>
       <CardFooter>
-        {user?.clientReadOnlyMetadata?.subscriptionPlan === "free" ? (
+        {user?.clientMetadata?.subscriptionPlan === "free" || !user ? (
           <Button className="w-full cursor-default">
             <LockClosedIcon />
           </Button>
