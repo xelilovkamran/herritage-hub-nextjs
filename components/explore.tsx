@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Button, buttonVariants } from "@/components/ui/button";
 import {
@@ -9,6 +11,8 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import Link from "next/link";
+import { useUser } from "@stackframe/stack";
+import { LockClosedIcon } from "@radix-ui/react-icons";
 
 type ExploreCardProps = {
   title: string;
@@ -22,6 +26,8 @@ type ExploreCardProps = {
 };
 
 export function ExploreCard(props: ExploreCardProps) {
+  const user = useUser();
+
   return (
     <Card
       className={`w-full max-w-sm ${
@@ -55,14 +61,20 @@ export function ExploreCard(props: ExploreCardProps) {
         </div>
       </CardContent>
       <CardFooter>
-        <Link
-          href={props.buttonHref}
-          className={buttonVariants({
-            variant: props.isPopular ? "default" : "outline",
-          })}
-        >
-          {props.buttonText}
-        </Link>
+        {user?.clientReadOnlyMetadata?.subscriptionPlan === "free" ? (
+          <Button className="w-full cursor-default">
+            <LockClosedIcon />
+          </Button>
+        ) : (
+          <Link
+            href={props.buttonHref}
+            className={buttonVariants({
+              variant: props.isPopular ? "default" : "outline",
+            })}
+          >
+            {props.buttonText}
+          </Link>
+        )}
       </CardFooter>
     </Card>
   );

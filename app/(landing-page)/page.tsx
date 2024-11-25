@@ -12,6 +12,16 @@ import {
 } from "@radix-ui/react-icons";
 
 export default async function IndexPage() {
+  const user = await stackServerApp.getUser();
+
+  if (!user?.clientReadOnlyMetadata) {
+    await user?.update({
+      clientReadOnlyMetadata: {
+        subscriptionPlan: "free",
+      },
+    });
+  }
+
   return (
     <>
       <Hero
@@ -100,23 +110,23 @@ export default async function IndexPage() {
               "No credit card required",
             ],
             buttonText: "Upgrade to Pro",
-            isPopular: true,
+            // isPopular: true,
             buttonHref: stackServerApp.urls.signUp,
           },
-          {
-            title: "Enterprise",
-            price: "Still Free",
-            description: "For large organizations or educational institutions.",
-            features: [
-              "Full access to content",
-              "100% Open-source",
-              "Community-driven support",
-              "Free forever",
-              "No credit card required",
-            ],
-            buttonText: "Contact Us",
-            buttonHref: stackServerApp.urls.signUp,
-          },
+          // {
+          //   title: "Enterprise",
+          //   price: "Still Free",
+          //   description: "For large organizations or educational institutions.",
+          //   features: [
+          //     "Full access to content",
+          //     "100% Open-source",
+          //     "Community-driven support",
+          //     "Free forever",
+          //     "No credit card required",
+          //   ],
+          //   buttonText: "Contact Us",
+          //   buttonHref: stackServerApp.urls.signUp,
+          // },
         ]}
       />
     </>
