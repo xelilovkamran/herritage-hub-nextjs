@@ -17,7 +17,7 @@ export default async function IndexPage() {
   if (!user?.clientMetadata) {
     await user?.update({
       clientMetadata: {
-        subscriptionPlan: "free",
+        subscriptionPlan: "basic",
       },
     });
   }
@@ -79,7 +79,7 @@ export default async function IndexPage() {
         ]}
       />
 
-      <div id="pricing" />
+      {/* <div id="pricing" />
       <PricingGrid
         title="Plans"
         subtitle="Choose the plan that fits your exploration needs."
@@ -128,7 +128,7 @@ export default async function IndexPage() {
           //   buttonHref: stackServerApp.urls.signUp,
           // },
         ]}
-      />
+      /> */}
     </>
   );
 }

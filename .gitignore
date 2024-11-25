@@ -36,4 +36,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 
-/public/threejs-app/*.glb
+# /public/threejs-app/*.glb
