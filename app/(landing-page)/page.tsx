@@ -14,9 +14,9 @@ import {
 export default async function IndexPage() {
   const user = await stackServerApp.getUser();
 
-  if (!user?.clientReadOnlyMetadata) {
+  if (!user?.clientMetadata) {
     await user?.update({
-      clientReadOnlyMetadata: {
+      clientMetadata: {
         subscriptionPlan: "free",
       },
     });
