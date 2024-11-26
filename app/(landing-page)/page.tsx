@@ -26,13 +26,14 @@ export default async function IndexPage() {
     <>
       <Hero
         capsuleText="Unveiling the Past, One Click at a Time."
-        capsuleLink="https://github.com/xelilovkamran"
+        // capsuleLink="https://github.com/xelilovkamran"
+        capsuleLink="/explore"
         title="Discover History Through Immersive Exploration"
         subtitle="Crafted for seamless exploration. Next.js + TypeScript + Three.js."
         primaryCtaText="Get Started"
         primaryCtaLink={stackServerApp.urls.signUp}
-        secondaryCtaText="GitHub"
-        secondaryCtaLink="https://github.com/xelilovkamran"
+        // secondaryCtaText="GitHub"
+        // secondaryCtaLink="https://github.com/xelilovkamran"
       />
 
       <div id="features" />
