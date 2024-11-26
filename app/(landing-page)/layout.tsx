@@ -14,7 +14,7 @@ export default function Layout(props: { children: React.ReactNode }) {
       <Footer
         builtBy="Holberton School students"
         builtByLink="https://www.holbertonschool.com/"
-        githubLink="https://github.com/xelilovkamran/herritage-hub-nextjs"
+        githubLink=""
         twitterLink=""
         linkedinLink=""
       />
