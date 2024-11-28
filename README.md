@@ -1,6 +1,6 @@
 # History Explore 🚀
 
-<!-- [Demo](https://history-explore.vercel.app/) -->
+[Demo](https://history-explore.vercel.app/)
 
 ## Landing Page
 

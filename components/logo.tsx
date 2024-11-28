@@ -7,7 +7,7 @@ export function Logo(props: { className?: string; link?: string }) {
       href={props.link ?? "/"}
       className={cn("items-center space-x-2", props.className)}
     >
-      <span className="font-bold sm:inline-block">Herritage Hub</span>
+      <span className="font-bold sm:inline-block">History Explore</span>
     </Link>
   );
 }
