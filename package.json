@@ -16,6 +16,8 @@
     "@radix-ui/react-separator": "^1.0.3",
     "@radix-ui/react-slot": "^1.0.2",
     "@stackframe/stack": "^2.5.37",
+    "@stripe/react-stripe-js": "^3.0.0",
+    "@stripe/stripe-js": "^5.2.0",
     "class-variance-authority": "^0.7.0",
     "clsx": "^2.1.1",
     "lucide-react": "^0.378.0",
@@ -24,6 +26,7 @@
     "react": "^18",
     "react-dom": "^18",
     "recharts": "^2.12.7",
+    "stripe": "^17.4.0",
     "tailwind-merge": "^2.5.2",
     "tailwindcss-animate": "^1.0.7"
   },

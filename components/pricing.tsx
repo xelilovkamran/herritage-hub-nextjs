@@ -29,12 +29,14 @@ export function PricingCard(props: PricingCardProps) {
   const user = useUser();
   const router = useRouter();
 
-  const onClick = async () => {
-    await user?.update({
-      clientMetadata: {
-        subscriptionPlan: "basic",
-      },
-    });
+  const onclick = () => {
+    if (user && user.clientMetadata.subscriptionPlan === "unselected") {
+      router.push(props.buttonHref);
+    } else if (!user) {
+      router.push("/handler/sign-in");
+    } else {
+      router.push("/explore");
+    }
   };
 
   return (
@@ -62,15 +64,17 @@ export function PricingCard(props: PricingCardProps) {
         </ul>
       </CardContent>
       <CardFooter>
-        <Link
-          href="/explore"
-          className={buttonVariants({
-            variant: "outline",
-          })}
-          onClick={() => (user ? onClick() : router.push("handler/sign-in"))}
+        <Button
+          className={
+            (buttonVariants({
+              variant: "outline",
+            }),
+            "w-full hover:opacity-90 transition-all duration-300")
+          }
+          onClick={onclick}
         >
           {props.buttonText}
-        </Link>
+        </Button>
       </CardFooter>
     </Card>
   );
@@ -93,7 +97,7 @@ export function PricingGrid(props: {
         </p>
       </div>
 
-      <div className="mx-auto grid justify-center gap-40 sm:grid-cols-2 md:max-w-5xl md:grid-cols-2">
+      <div className="mx-auto grid justify-center gap-4 sm:grid-cols-2 md:max-w-5xl md:grid-cols-3">
         {props.items.map((item, index) => (
           <PricingCard key={index} {...item} />
         ))}

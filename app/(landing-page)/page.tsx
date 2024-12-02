@@ -17,7 +17,7 @@ export default async function IndexPage() {
   if (!user?.clientMetadata) {
     await user?.update({
       clientMetadata: {
-        subscriptionPlan: "basic",
+        subscriptionPlan: "unselected",
       },
     });
   }
@@ -80,7 +80,7 @@ export default async function IndexPage() {
         ]}
       />
 
-      {/* <div id="pricing" />
+      <div id="pricing" />
       <PricingGrid
         title="Plans"
         subtitle="Choose the plan that fits your exploration needs."
@@ -97,7 +97,7 @@ export default async function IndexPage() {
               "No credit card required",
             ],
             buttonText: "Get Started",
-            buttonHref: stackServerApp.urls.signUp,
+            buttonHref: "payment?plan=basic",
           },
           {
             title: "Pro",
@@ -111,25 +111,25 @@ export default async function IndexPage() {
               "No credit card required",
             ],
             buttonText: "Upgrade to Pro",
-            // isPopular: true,
-            buttonHref: stackServerApp.urls.signUp,
+            isPopular: true,
+            buttonHref: "payment?plan=pro",
           },
-          // {
-          //   title: "Enterprise",
-          //   price: "Still Free",
-          //   description: "For large organizations or educational institutions.",
-          //   features: [
-          //     "Full access to content",
-          //     "100% Open-source",
-          //     "Community-driven support",
-          //     "Free forever",
-          //     "No credit card required",
-          //   ],
-          //   buttonText: "Contact Us",
-          //   buttonHref: stackServerApp.urls.signUp,
-          // },
+          {
+            title: "Enterprise",
+            price: "Still Free",
+            description: "For large organizations or educational institutions.",
+            features: [
+              "Full access to content",
+              "100% Open-source",
+              "Community-driven support",
+              "Free forever",
+              "No credit card required",
+            ],
+            buttonText: "Contact Us",
+            buttonHref: "contact",
+          },
         ]}
-      /> */}
+      />
     </>
   );
 }
